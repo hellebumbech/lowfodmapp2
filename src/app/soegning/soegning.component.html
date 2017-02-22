@@ -1,0 +1,17 @@
+<h2>Søg fødevare</h2>
+<form>
+    <input type="text" name="soegetekst" 
+        [(ngModel)]="soegetekst" placeholder="Skriv fødevare"
+        (input)="filterItem(soegetekst)">
+</form>
+
+<div *ngFor="let foedevare of filtreredeFoedevarer">
+    <div>
+        <a [routerLink]="['foedevare', foedevare.id]" routerLinkActive="active">
+            {{ foedevare.kategori }}: {{ foedevare.navn }}
+        </a>
+    </div>
+</div>
+<div>
+    <a routerLink="/" class="btn">Tilbage</a>
+</div>
